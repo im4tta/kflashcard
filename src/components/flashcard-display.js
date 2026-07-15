@@ -95,8 +95,18 @@ export function FlashcardDisplay({
 
       <CardContent className="space-y-6">
         {/* Khmer side - always visible, this is the "question" */}
-        <div className="text-center py-6 relative">
-          {card.emoji && <div className="text-5xl mb-4">{card.emoji}</div>}
+        <div className="text-center py-4 relative space-y-4">
+          {card.image && (
+            <div className="flex justify-center">
+              <img
+                src={card.image}
+                alt={card.english}
+                className="w-48 h-48 sm:w-56 sm:h-56 object-cover rounded-2xl shadow-md border border-amber-200 animate-pop-in"
+                loading="lazy"
+              />
+            </div>
+          )}
+          {card.emoji && <div className="text-5xl mb-2">{card.emoji}</div>}
           <div className="flex items-center justify-center gap-3">
             <p className="khmer-text text-6xl sm:text-7xl font-bold leading-relaxed">
               {card.khmer}
